@@ -1,0 +1,160 @@
+
+// https://dribbble.com/shots/5359506-Schedule/attachments
+@import url('https://use.fontawesome.com/releases/v5.8.1/css/all.css');
+@import url('https://fonts.googleapis.com/css?family=Poiret+One|Rubik');
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?4ejuqb');
+  src:  url('../fonts/icomoon.eot?4ejuqb#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?4ejuqb') format('truetype'),
+    url('../fonts/icomoon.woff?4ejuqb') format('woff'),
+    url('../fonts/icomoon.svg?4ejuqb#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+*[icon]:before {display: inline-block;font-family: 'icomoon';}
+*[icon="barbell"]:before {content: "\e900";}
+*[icon="bread"]:before {content: "\e901";}
+*[icon="flash"]:before {content: "\e902";}
+*[icon="program"]:before {content: "\e903";}
+
+$c-1st: #fff;
+$c-2st: #000;
+$c-3st: #8e80ee;
+$c-4st: #6657c3;
+$c-5st: #454545;
+$c-6st: #fafafa;
+$c-7st: #ffa91a;
+$c-8st: #008eff;
+$c-9st: #ff1877;
+
+
+@mixin size($w,$h:$w) {
+  width: $w;
+  height: $h;
+}
+
+@mixin float($direction) {
+float: $direction
+}
+
+@mixin setBorder($w,$c) {
+  border: $w solid $c;
+}
+
+@mixin brdRad($tl,$tr:$tl,$br:$tl, $bl:$tl) {
+  border-top-left-radius: $tl;
+	border-top-right-radius: $tr;
+	border-bottom-right-radius: $br;
+	border-bottom-left-radius: $bl;
+}
+
+@mixin setBg($color){
+  background-color: $color;
+}
+
+body,html {
+  margin: 0;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+li{
+  list-style: none;
+}
+
+// CSS Modules
+
+.active-c {
+  color: $c-4st;
+}
+
+.active-bg {
+  @include setBg($c-4st);
+}
+.schedule-dot {
+  @include setBg($c-8st);
+}
+.schedule-imp-dot {
+  @include setBg($c-9st);
+}
+
+.round {
+  @include brdRad(50%);
+}
+
+.bolder {
+  font-weight: 700;
+}
+
+
+.container {
+  overflow: hidden;
+  .left-side {
+    @include size(15%,100vh);
+    @include float(left);
+    border-right: 1px solid $c-6st;
+    box-sizing: border-box;
+    i.fa-heart {
+      @include size(4rem);
+      @include setBg($c-3st);
+      color: $c-1st;
+      text-align: center;
+      line-height: 4rem;
+      font-size: 28px;
+    }
+    i {
+      @include size(1.5rem,inherit);
+      color: $c-5st;
+      display: inline-block;
+      line-height: inherit;
+      text-align: center;
+    }
+    a {
+      @include size(100%,2rem);
+      line-height: 2rem;
+      color: $c-5st;
+      &:hover{
+        @include setBg($c-3st);
+      
+      }
+    }
+  }
+  #header {
+    @include size(85%,5.25rem);
+    @include float(right);
+    background: aqua;
+    .search-label {
+      @include size(65%,100%);
+      @include float(left);
+    }
+    .bell {
+      @include size(5%,100%);
+      @include float(left);
+    }
+    .user {
+      @include size(30%,100%);
+      @include float(left);
+    }
+  }
+  .contact {
+    @include size(85%);
+    @include float(left);
+    background: yellow;
+    .schedule-contr {
+      @include size(70%,auto);
+      @include float(left);
+      background: green;
+    }
+    .calendar-contr {
+      @include size(30%,auto);
+      @include float(right);
+      background: blue;
+    }
+  }
+}
+
